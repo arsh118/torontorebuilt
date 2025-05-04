@@ -2074,3 +2074,90 @@ left: 35%; */
   margin: 0;
   display: inline-block;
 }
+
+/* ─── Responsive Adjustments ──────────────────── */
+@media (max-width: 1200px) {
+    .category-content {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .tab-pane.active {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .main-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .category-tabs {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .tab {
+        flex: 1 1 45%;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .pane-visual img {
+        height: 200px;
+    }
+    
+    .city-pulse .status-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .search-form {
+        order: -1;
+        width: 100%;
+    }
+    
+    .text-controls {
+        order: 2;
+    }
+    
+    .btn-cta {
+        order: 3;
+    }
+    
+    .banner-overlay h1 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-overlay p {
+        font-size: 1rem;
+    }
+    
+    .category-content .submenu-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .category-content .submenu-list li:not(:last-child)::after {
+        display: none;
+    }
+}
