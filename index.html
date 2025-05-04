@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Toronto.ca – Smart Clone</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER & MAIN NAV WITH SUBMENUS -->
+    <header class="top-bar">
+        <div class="header-left">
+            <img class="logo" src="https://www.toronto.ca/wp-content/themes/cot/img/logo.svg">
+            <nav aria-label="Main navigation">
+                <ul class="main-nav">
+                    <li class="has-sub">
+                        <a href="#services">Services &amp; Payments</a>
+                        <ul class="submenu">
+                            <li><a href="#">Building &amp; Construction</a></li>
+                            <li><a href="#">Grants, Incentives &amp; Rebates</a></li>
+                            <li><a href="#">Permits &amp; Licences</a></li>
+                            <li><a href="#">Property Taxes &amp; Utilities</a></li>
+                            <li><a href="#">Recycling, Organics &amp; Garbage</a></li>
+                            <li><a href="#">Streets, Parking &amp; Transportation</a></li>
+                            <li><a href="#">Tickets, Fines &amp; Penalties</a></li>
+                            <li><a href="#">Venues, Facilities &amp; Bookings</a></li>
+                            <li><a href="#">Water &amp; Environment</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#community">Community &amp; People</a>
+                        <ul class="submenu">
+                            <li><a href="#">Animals &amp; Pets</a></li>
+                            <li><a href="#">Children, Youth, Parents &amp; Seniors</a></li>
+                            <li><a href="#">Community Partners</a></li>
+                            <li><a href="#">Financial &amp; Employment Support</a></li>
+                            <li><a href="#">Get Involved</a></li>
+                            <li><a href="#">Health &amp; Wellness</a></li>
+                            <li><a href="#">Housing &amp; Shelter</a></li>
+                            <li><a href="#">Moving to Toronto</a></li>
+                            <li><a href="#">Public &amp; Community Safety</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#business">Business &amp; Economy</a>
+                        <ul class="submenu">
+                            <li><a href="#">Business Operation &amp; Growth</a></li>
+                            <li><a href="#">New Businesses &amp; Startups</a></li>
+                            <li><a href="#">Doing Business with the City</a></li>
+                            <li><a href="#">Industry Sector Support</a></li>
+                            <li><a href="#">Invest in Toronto</a></li>
+                            <li><a href="#">Partnerships, Sponsorships &amp; Donations</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#explore">Explore &amp; Enjoy</a>
+                        <ul class="submenu">
+                            <li><a href="#">Festivals &amp; Events</a></li>
+                            <li><a href="#">Parks &amp; Recreation</a></li>
+                            <li><a href="#">History, Art &amp; Culture</a></li>
+                            <li><a href="#">Welcome to Toronto</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#government">City Government</a>
+                        <ul class="submenu">
+                            <li><a href="#">Accessibility &amp; Human Rights</a></li>
+                            <li><a href="#">Accountability, City Administration &amp; Customer Service</a></li>
+                            <li><a href="#">Awards &amp; Tributes</a></li>
+                            <li><a href="#">Budget &amp; Finances</a></li>
+                            <li><a href="#">Council</a></li>
+                            <li><a href="#">Data, Research &amp; Maps</a></li>
+                            <li><a href="#">Elections</a></li>
+                            <li><a href="#">Planning &amp; Development</a></li>
+                            <li><a href="#">Public Notices &amp; Bylaws</a></li>
+                        </ul>
+                    </li>
+                    <!-- 3D Infrastructure Tab -->
+                    <li><a href="#infrastructure">3D Infrastructure</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-right">
+            <form class="search-form">
+                <input type="search" placeholder="Search" aria-label="Search">
+                <button type="submit" class="btn-search">🔍</button>
+                <button type="button" class="btn-voice" onclick="startVoice()">🎤</button>
+            </form>
+            <div class="text-controls">
+                <button onclick="adjustFont(1)">A⁺</button>
+                <button onclick="adjustFont(-1)">A–</button>
+                <button onclick="document.body.classList.toggle('dark')">🌙/☀️</button>
+            </div>
+            <button class="btn-cta">I want to… ▼</button>
+        </div>
+    </header>
+    <!-- NEW FULL-WIDTH BANNER -->
+    <section class="banner">
+        <div class="banner-overlay">
+            <h1>Welcome to Toronto</h1>
+            <p>Discover our parks, events, and community services</p>
+            <a href="#explore" class="btn-banner">Explore Now</a>
+        </div>
+        <img src="https://www.toronto.ca/wp-content/uploads/2025/05/97eb-cherry-blossom-home-1500x700.jpg" alt="Cherry blossoms in High Park">
+    </section>
+
+    <section class="section-heading">
+        <h2 class="headingg">Live City Status</h2>
+    </section>
+    <!-- CATEGORY TABS -->
+    <section class="category-tabs">
+        <div class="tab active" data-tab="trending">Trending</div>
+        <div class="tab" data-tab="healthy">Healthy Living</div>
+        <div class="tab" data-tab="around">Getting Around</div>
+        <div class="tab" data-tab="permits">Permits &amp; Licences</div>
+        <div class="tab" data-tab="city">Your City</div>
+        <div class="tab" data-tab="property">Your Property</div>
+    </section>
+    <!-- Before category tabs -->
+    <section class="section-heading">
+        <h2>Essential Services</h2>
+    </section>
+    <!-- DYNAMIC SUB-MENU + CONTENT -->
+    <section class="category-content">
+        <!-- TRENDING -->
+        <div class="tab-pane" id="trending">
+            <ul class="submenu-list">
+                <li><a href="#trending">Waste Wizard</a></li>
+                <li><a href="#trending">Make the Right Call</a></li>
+                <li><a href="#trending">Fitness</a></li>
+                <li><a href="#trending">Golf</a></li>
+                <li><a href="#trending">Tree Planting</a></li>
+            </ul>
+            <div class="pane-visual">
+                <img class="images_sideby" src="https://media-hosting.imagekit.io/feb5df21de0e45e5/img1_plantsw.jpg?Expires=1840982581&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=QMZfzElfo2Ss8c5kN1AqKqNZAkJ3UhW2-9IhlruPqLp0Ve8ElOQBuLv17fBWIKJ7aavuVkC3Ca2IJdA3NT2USmMuJF3tu5W9mi~BzKkyr1SbZToGhm4kDGSIBEKPMg6TrHsU9roAYWwzBVDnon~KaSq3wHMIDFYyi81F2kXpgOlxfuMh4W89L75eBeskSLLYfed-oICi5RvwaYvhkgs~mJsKH~S1zg9Ze~nom-AMxXz41XRJNuERAbdhnU0GJhuxShs5dzZgzqRsXLhFnzefavwugThlNyNdowy3Fm~en4MXbsS0u3AKQ9YNTGYr9G2KczD7JVPha8vi5l2yTsIzCQ__" alt="Tree Planting">
+                <p class="para_inside_img">Join our city-wide tree planting initiative—help us grow Toronto’s urban forest!</p>
+            </div>
+        </div>
+
+        <!-- HEALTHY -->
+        <div class="tab-pane" id="healthy">
+            <ul class="submenu-list">
+                <li><a href="#healthy">Respiratory Viruses</a></li>
+                <li><a href="#healthy">COVID-19 Vaccines</a></li>
+                <li><a href="#healthy">Mental Health</a></li>
+                <li><a href="#healthy">Child Vaccinations</a></li>
+            </ul>
+            <div class="pane-visual">
+                <img class="images_sideby" src="https://media-hosting.imagekit.io/135c23dad3d54e20/img22.avif?Expires=1840982640&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=YOpZJtSn2NbYMLa1NgZd2ey9qxaw~VeLjhQSkzyg1mlq-LR6g-Zpojv4BwFrfgD8enVbwiQImmJWBlX~86X0QvaqmApxd2ua5lAoocc7Frfyr-QnhGePMr0PXpXABKs8lwAWmRqSpCovTNZo0JnAV8ugNibIk3VC~SKrKuufBweWKxQiTh1dY6UeykbfL0pDXV9l5KunrLTJ7q4kZCPnNVijwEwnWbe~tuNRzibCall3BgBbQDDf5TFhcCmnxePb~4SIglPltohTI-8UENkanmbTDoU3O5OykQF5cVP3vLpHZ5RgAbZwZvQTJKPI4EctHP-hnpp3JEwLAqy8UTKTEw__" alt="Health & Wellness">
+                <p class="para_inside_img">Find clinics, mental-health supports, and the latest vaccination schedules.</p>
+            </div>
+        </div>
+
+        <!-- AROUND -->
+        <div class="tab-pane" id="around">
+            <ul class="submenu-list">
+                <li><a href="#around">Road Restrictions Map</a></li>
+                <li><a href="#around">Cycling</a></li>
+                <li><a href="#around">Parking Violations</a></li>
+                <li><a href="#around">Parking Permits</a></li>
+                <li><a href="#around">Potholes</a></li>
+            </ul>
+            <div class="pane-visual">
+                <img class="images_sideby" src="https://media-hosting.imagekit.io/4eb4e40442b1442b/img33.avif?Expires=1840982687&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ZvyoTrJHMblzmxd9E3DwPqhvryX5TwuT3sDOuiNKS2qb7YiAU5HLt-2bIUmJLtMBuropaTFhRLLY~wCl0na~86oKaoaHUFQCwXAS4StQ2wbmfkHEvZhXyEwMRkbeS1LrAo8mH5zzl8IqXuUJb7CN8LFUOQEk6TwEKPggXvejv-enGNU670SRANvlfoPn1D5F8aXCvJX--bHSzw5ClOePhDpeYP7Zxltv1dYyaOyCxmmLT4SYf3ZNBvs9EhM4AVrtbPqJb9UM3HE9QorsnSL263QpuPwmKSwEjuWpGv5b89~9lAqgWKsrPkUsPSt0gKWnqWl6bus2wab92br2o46Kcw__" alt="Cycling Map">
+                <p class="para_inside_img">Navigate Toronto safely with our live road and cycling maps.</p>
+            </div>
+        </div>
+
+        <!-- PERMITS -->
+        <div class="tab-pane" id="permits">
+            <ul class="submenu-list">
+                <li><a href="#permits">Pet Licensing</a></li>
+                <li><a href="#permits">Building Permits</a></li>
+                <li><a href="#permits">Event Permits</a></li>
+                <li><a href="#permits">Business Regulations, Licences &amp; Permits</a></li>
+                <li><a href="#permits">Remove a Tree</a></li>
+            </ul>
+            <div class="pane-visual">
+                <img class="images_sideby" src="https://media-hosting.imagekit.io/3f76f77edff94b3d/img123.avif?Expires=1840982734&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=FME8KnG1EAY-NyEvtc0eaDVQjBftNK67faW1xpaVeDvHffLtGhZ-fHinoX-UX6z~gj9bJ-72ZNR5tEHFlmXnJi9GOC4g4qOuskZ-SWD3YKmtTyq5TUgq2J1~ta0u64u1f7D0mPZbzAY9Gug6AC~9BDyajM-uA50JmCeiHlbCI6N4229kuXFGaxUFt~ng12z~RxQzXgVjZ2MtpKzLomD4PvhBCX9L~wNbCPhXcTCHas2V9jUe1XfZltu3AnftJfUCbsBAua74uF5amudcv9xAtt4x1OZS9pbGs5dEVhjPnfXwMTjj66PNyAXhu-iZ8QfKjjxKEPq0R4BrUAfJe8zEpA__" alt="Permits">
+                <p class="para_inside_img">Apply or renew permits online in minutes—no in-person visit required.</p>
+            </div>
+        </div>
+
+        <!-- CITY -->
+        <div class="tab-pane" id="city">
+            <ul class="submenu-list">
+                <li><a href="#city">Office of the Mayor</a></li>
+                <li><a href="#city">Members of Council</a></li>
+                <li><a href="#city">311</a></li>
+                <li><a href="#city">Public Notices</a></li>
+                <li><a href="#city">Open Data</a></li>
+            </ul>
+            <div class="pane-visual">
+                <img class="images_sideby" src="https://media-hosting.imagekit.io/9333b696dbcd4ef3/city.avif?Expires=1840982796&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=2uLI1YJbR0vDqDoWsu~6t9jDdp5TvuId5w5y52FgenTK2am~A64Vho3vso~QWrzpMUP436CZicK5uK~L8y~9q5l5cLq4GloKgR1Phwn63olre7FqQ8E9~uLsmyk4-Tl93CkHXawwQIbfWNQHE-nGLFySTH~PFdpBzbQjLZdikoGYn~9g7uD~N0ZFKIRzWU0cHO9dimNRm8jULFGqch2kBygN4BSOia8xxplPglFTmZpgxB3beJnZ60sz9cWqpDroemG-caMvHJUG256qsdY~Jp3nES7Xx-AuYwgYne9axL9IQTALKrOlCPRQCrbDWD~tM~UH50lWM6ZMBSV~GCvBfQ__" alt="City Council">
+                <p class="para_inside_img">Meet your councillors, read the latest public notices, and explore open data.</p>
+            </div>
+        </div>
+
+        <!-- PROPERTY -->
+        <div class="tab-pane" id="property">
+            <ul class="submenu-list">
+                <li><a href="#property">Waste Collection Schedule</a></li>
+                <li><a href="#property">Vacant Home Tax</a></li>
+                <li><a href="#property">Recycling, Garbage &amp; Organics</a></li>
+                <li><a href="#property">Property Tax</a></li>
+                <li><a href="#property">Utility Bills</a></li>
+
+            </ul>
+            <div class="pane-visual">
+                <img class="images_sideby" src="https://media-hosting.imagekit.io/85be7382529a4340/img222.avif?Expires=1840982832&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XCF1kpzksDY1c1JxrJGn7J~JrIXOgVty3GqrD6jIIJpY2fgI3wIfCCmBlsVZ6uIoE0hbC7FMBjEXO8VmxV~Q1Qp12n6TpkA~jDn5A5tcwLuJAFIB6fkbzADZTF-pTn9v6Hgs3RQL-s0WyPju7ShcdvXTr-Q32aPv2pGqQPyM9jcIFofv2hoCfsQ0By~Rn6Ff8TLqHlCbnV9ftHPiA~dpPc1UZgkJAIqfxA0zGdlEcV7iqZSc94VGcCWJwTbm5vCcrTtFdhM76nwx60xhuF5oSxlxoDN-0y1F5xacS7efT~rer-kWvFm2irnP2DWuxPrYTwHvTo9EZadlM1s8MwyO~w__" alt="Waste Collection">
+                <p class="para_inside_img">Never miss collection day—set reminders and download your street’s schedule.</p>
+            </div>
+        </div>
+    </section>
+    <!-- HERO -->
+
+    <!-- Before city pulse -->
+    <section class="section-heading">
+        <h2>City Pulse</h2>
+    </section>
+    <!-- Add after category tabs -->
+    <section class="city-pulse">
+        <div class="pulse-container">
+            <!-- Status Grid -->
+            <div class="status-grid">
+                <!-- Transit Status -->
+                <div class="status-card transit">
+                    <div class="status-header">
+                        <i class="fas fa-subway"></i>
+                        <h3>Real-Time Transit</h3>
+                        <div class="live-dot"></div>
+                    </div>
+                    <div class="status-body">
+                        <div class="line-status">
+                            <span class="line-number line1">1</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                            <span class="delay-time">2m</span>
+                        </div>
+                        <!-- Add more line statuses -->
+                    </div>
+                </div>
+
+                <!-- Air Quality -->
+                <div class="status-card air">
+                    <div class="status-header">
+                        <i class="fas fa-lungs"></i>
+                        <h3>Air Quality</h3>
+                        <div class="aqi-index">42</div>
+                    </div>
+                    <canvas class="aqi-chart"></canvas>
+                </div>
+
+                <!-- Emergency Alerts -->
+                <div class="status-card alerts">
+                    <div class="status-header">
+                        <i class="fas fa-bell"></i>
+                        <h3>Active Alerts</h3>
+                        <div class="alert-count">3</div>
+                    </div>
+                    <div class="alert-scroller">
+                        <div class="alert-item critical">
+                            <span class="alert-time">14:32</span>
+                            Water main break at Queen & Spadina
+                        </div>
+                        <div class="alert-item warning">
+                            <span class="alert-time">13:45</span>
+                            TTC delays on Line 2
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="live-map">
+                <div class="map-header">
+                    <h3>Live City Map</h3>
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="construction"></span>
+                            Construction
+                        </div>
+                        <div class="legend-item">
+                            <span class="event"></span>
+                            Events
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div class="map-overlay">
+                        <div class="incident-marker construction" style="top: 30%; left: 45%">
+                            <div class="marker-tooltip">Water Main Repair - ETA 4h</div>
+                        </div>
+                        <div class="incident-marker event" style="top: 50%; left: 60%">
+                            <div class="marker-tooltip">Street Festival - June 15-18</div>
+                        </div>
+                    </div>
+                    <img src="https://www.google.com/maps/vt/data=Srxj6dH8sR7oVNBjEYclJIitX0xx1v7aNOzcukwrqx-m6TZzUeH-lFi2ysW6mvL5bQFh84rW5zUctO4EGTWiv6Uux11QgEykc9R7cR0vRhBJwVFfx2_RO1CqisOPr8NA1elTcq47LHWNul87VlmAhSMIeb-NU-YQDQUYSaHOYy9Ft7F71YJ0u-Lyty_rc0q_FlvFw9qcFMmRLc4JsvnWFOMgrDuNDMqQddJmgejvEHEDFqF0zh-6e9ff6Fz4LWQvW5jGVURj_IVzS97TpkIpwdB531VZ1ADjdktUTu-bSKuFuiwL41_pNIYmyRcSUW4ZWzvLGvxOuUrKZ6wudTrBGgmJH6JkHHwFvvGAToCwIQ" alt="Toronto Base Map" class="base-map" crossorigin="anonymous">
+                    <iframe src="https://www.google.com/maps/embed?pb=..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+    </section>
+
+    <!-- TABS & SUBNAV (unchanged) -->
+
+
+    <!-- SECTIONS FOR EACH MAIN NAV (placeholders) -->
+    <!-- Before What's New -->
+    <section class="section-heading">
+        <h2> 🔔 Latest Updates</h2>
+    </section>
+    <!-- Services & Payments -->
+    <section id="services" class="section-placeholder">
+        <h2>
+            <span>Services & Payments</span>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 8h-4v4h-2v-4H7V9h4V5h2v4h4v2z" />
+            </svg>
+        </h2>
+        <div class="section-content">
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 2H6v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L14 12l4-3.99-.01-.01H18V2zm-2 14.5V20H8v-3.5l4-4 4 4zm0-9-4 4-4-4V4h8v3.5z" />
+                </svg>
+                Building Permits
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.77.79-1.12 1.52-1.12.98 0 1.69.46 1.78 1.41h1.83c-.11-1.6-1.29-2.48-3.01-2.48-1.31 0-2.66.44-2.66 1.98 0 1.48 1.26 2.02 2.86 2.26 1.9.39 2.34 1.07 2.34 1.87 0 .77-.56 1.32-1.67 1.32-1.24 0-1.92-.46-2.02-1.53H8.2c.11 1.7 1.44 2.68 3.12 2.68 1.93 0 3.03-.95 3.03-2.47.01-1.37-.89-2.06-2.54-2.38z" />
+                </svg>
+                Utility Payments
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 4V3c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6h1v4H9v11c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-9h8V4h-3z" />
+                </svg>
+                Parking Tickets
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.89-13.9c-2.52 0-4.63 1.69-5.19 4h2.08c.34-1.15 1.46-2 2.82-2 1.58 0 2.86 1.29 2.86 2.86 0 1.58-1.28 2.86-2.86 2.86-1.03 0-1.93-.55-2.43-1.36H9.1c.75 1.62 2.42 2.76 4.35 2.76 2.64 0 4.77-2.15 4.77-4.79s-2.13-4.79-4.77-4.79z" />
+                </svg>
+                Property Tax
+            </div>
+        </div>
+    </section>
+
+    <!-- Community & People -->
+    <section id="community" class="section-placeholder">
+        <h2>
+            <span>Community & People</span>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+            </svg>
+        </h2>
+        <div class="section-content">
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                </svg>
+                Community Centers
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                </svg>
+                Volunteer Opportunities
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-4h2v2h-2zm1.61-9.96c-2.06-.3-3.61 1.14-3.61 2.96h2c0-.83.79-1.5 1.61-1.5.89 0 1.39.64 1.39 1.5 0 .84-.65 1.47-1.39 1.47-.45 0-.85-.2-1.11-.53l-1.24.83c.45.72 1.31 1.2 2.35 1.2 1.38 0 2.39-1.03 2.39-2.5 0-1.71-1.54-3.03-3.39-2.93z" />
+                </svg>
+                Shelter Services
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 10h-2v2h2v2h-4v-4h2v-2h-2V8h4v4zm-8-4H7v2h2v2H7v2h4v-4H9v-2h2V8z" />
+                </svg>
+                Pet Adoption
+            </div>
+        </div>
+    </section>
+
+    <!-- Business & Economy -->
+    <section id="business" class="section-placeholder">
+        <h2>
+            <span>Business & Economy</span>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" />
+            </svg>
+        </h2>
+        <div class="section-content">
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M14 6V4h-4v2h4zM4 8v11h16V8H4zm16-2c1.11 0 2 .89 2 2v11c0 1.11-.89 2-2 2H4c-1.11 0-2-.89-2-2l.01-11c0-1.11.88-2 2-2h4V4c0-1.11.89-2 2-2h4c1.11 0 2 .89 2 2v2h4z" />
+                </svg>
+                Business Licenses
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M11 8.75v3.68c0 .35.19.68.49.86l3.12 1.85c.36.21.82.09 1.03-.26.21-.36.09-.82-.26-1.03l-2.87-1.71v-3.4c0-.4-.35-.75-.75-.75s-.75.35-.75.75zM21 9.5V4.25C21 3.56 20.44 3 19.75 3H4.25C3.56 3 3 3.56 3 4.25V9.5c0 4.56 3.32 8.35 7.73 9.24-.06-.25-.11-.51-.13-.78-.03-.18-.05-.36-.05-.54 0-2.9 2.35-5.25 5.25-5.25 1.14 0 2.2.37 3.06 1H14.5c-.28 0-.5.22-.5.5v1c0 .28.22.5.5.5h5c.28 0 .5-.22.5-.5v-4c0-.28-.22-.5-.5-.5h-1c0 .17-.03.33-.05.5H21z" />
+                </svg>
+                Startup Grants
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19.5 3.09L15 7.59V4h-2v7h7V9h-3.59l4.5-4.5-1.41-1.41zM13 13h-2v7h2v-7zm-4-1H7v8h2v-8zM5 20H3v-9h2v9z" />
+                </svg>
+                Tax Incentives
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.77.79-1.12 1.52-1.12.98 0 1.69.46 1.78 1.41h1.83c-.11-1.6-1.29-2.48-3.01-2.48-1.31 0-2.66.44-2.66 1.98 0 1.48 1.26 2.02 2.86 2.26 1.9.39 2.34 1.07 2.34 1.87 0 .77-.56 1.32-1.67 1.32-1.24 0-1.92-.46-2.02-1.53H8.2c.11 1.7 1.44 2.68 3.12 2.68 1.93 0 3.03-.95 3.03-2.47.01-1.37-.89-2.06-2.54-2.38z" />
+                </svg>
+                Business Regulations
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore & Enjoy -->
+    <section id="explore" class="section-placeholder">
+        <h2>
+            <span>Explore & Enjoy</span>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+        </h2>
+        <div class="section-content">
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                Parks & Recreation
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z" />
+                </svg>
+                Events Calendar
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-3.5-6.5h7v-1h-7v1zm0-3h7v-1h-7v1zm0-3h7v-1h-7v1z" />
+                </svg>
+                Museum Guide
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm-1.56 10H9v-1.44l3.35-3.3 1.43 1.43L10.44 12zm4.45-4.4l-.7.7-1.44-1.44.7-.7c.15-.15.39-.15.54 0l.9.9c.15.15.15.39 0 .54z" />
+                </svg>
+                Walking Tours
+            </div>
+        </div>
+    </section>
+
+    <!-- City Government -->
+    <section id="government" class="section-placeholder">
+        <h2>
+            <span>City Government</span>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M19 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3 7h-2V7h-4v2H8v4h2v2h4v-2h2v-4z" />
+            </svg>
+        </h2>
+        <div class="section-content">
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3 7h-2V7h-4v2H8v4h2v2h4v-2h2v-4z" />
+                </svg>
+                Council Meetings
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-4h2v2h-2zm1.61-9.96c-2.06-.3-3.61 1.14-3.61 2.96h2c0-.83.79-1.5 1.61-1.5.89 0 1.39.64 1.39 1.5 0 .84-.65 1.47-1.39 1.47-.45 0-.85-.2-1.11-.53l-1.24.83c.45.72 1.31 1.2 2.35 1.2 1.38 0 2.39-1.03 2.39-2.5 0-1.71-1.54-3.03-3.39-2.93z" />
+                </svg>
+                Public Notices
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 2.01L6 2c-1.1 0-2 .89-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5h2v3H8zm0 7h2v5H8z" />
+                </svg>
+                Election Info
+            </div>
+            <div class="quick-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+                </svg>
+                Open Data Portal
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D INFRASTRUCTURE -->
+    <section id="infrastructure" class="city-model">
+        <h2>🏙️ 3D Infrastructure Explorer</h2>
+        <iframe src="https://threejs.org/examples/#webgl_loader_gltf" width="100%" height="400px" frameborder="0"></iframe>
+    </section>
+
+    <!-- WHAT'S NEW -->
+    <!-- WHAT'S NEW -->
+    <main class="section-heading" id="whats-new">
+        <h2>What’s New</h2>
+
+        <!-- Real-time AQI Card -->
+        <div class="card real-time">
+            <h3>🌐 Real-Time Air Quality</h3>
+            <p id="aqi">Loading…</p>
+        </div>
+
+        <main>
+            <div class="grid">
+                <!-- Card Template -->
+                <div class="card" data-title="Cherry Blossoms" data-img="https://www.toronto.ca/wp-content/uploads/2022/05/9509-whatsnew-cherry-blossoms-high-park-2022.jpg" data-desc="Experience the magical peak bloom season at High Park with our live blossom cam and guided tours." data-gallery="['https://www.toronto.ca/wp-content/uploads/2022/05/9509-whatsnew-cherry-blossoms-high-park-2022.jpg','https://www.toronto.ca/wp-content/uploads/2021/04/cherry-blossom2.jpg']">
+                    <div class="badge">Hot</div>
+                    <img src="https://www.toronto.ca/wp-content/uploads/2022/05/9509-whatsnew-cherry-blossoms-high-park-2022.jpg" alt="Cherry Blossoms">
+                    <div class="content">
+                        <h3>Cherry Blossoms</h3>
+                        <p>Discover the top spots to enjoy peak bloom season—and catch our live blossom cam!</p>
+                        <button class="open-btn">Explore</button>
+                    </div>
+                </div>
+
+                <div class="card" data-title="Youth Week" data-img="https://www.toronto.ca/wp-content/uploads/2024/04/8dde-Youth-Week-Home-Page-Feature-350x250-1.jpg" data-desc="Celebrate young talents from around Toronto. Events, competitions, and showcases await! Submit your act before May 5." data-gallery="['https://www.toronto.ca/wp-content/uploads/2024/04/8dde-Youth-Week-Home-Page-Feature-350x250-1.jpg']">
+                    <img src="https://www.toronto.ca/wp-content/uploads/2024/04/8dde-Youth-Week-Home-Page-Feature-350x250-1.jpg" alt="Youth Week">
+                    <div class="content">
+                        <h3>Youth Week</h3>
+                        <p>Celebrating youth talents across the city. Submit your acts before May 5th!</p>
+                        <button class="open-btn">Join Now</button>
+                    </div>
+                </div>
+
+                <div class="card" data-title="Survey & Public Session" data-img="https://www.toronto.ca/wp-content/uploads/2025/04/97d5-Demonstration-Bylaw-Featured-Whats-New-Tile-350x250-1.jpg" data-desc="Join the conversation on new public demonstration bylaws. Share your voice and register for the April 20 session." data-gallery="['https://www.toronto.ca/wp-content/uploads/2025/04/97d5-Demonstration-Bylaw-Featured-Whats-New-Tile-350x250-1.jpg']">
+                    <img src="https://www.toronto.ca/wp-content/uploads/2025/04/97d5-Demonstration-Bylaw-Featured-Whats-New-Tile-350x250-1.jpg" alt="Survey & Public Session">
+                    <div class="content">
+                        <h3>Survey & Public Session</h3>
+                        <p>Have your say on new demonstration bylaws. Register for the April 20th session.</p>
+                        <button class="open-btn">RSVP</button>
+                    </div>
+                </div>
+
+                <div class="card" data-title="Energy & Water Reporting" data-img="https://www.toronto.ca/wp-content/uploads/2024/03/8f70-EWRB-Homepage-Item-350x250-1.jpeg" data-desc="Buildings over 50,000 sq ft must report energy and water usage by July 2, 2025. Learn to comply and avoid penalties." data-gallery="['https://www.toronto.ca/wp-content/uploads/2024/03/8f70-EWRB-Homepage-Item-350x250-1.jpeg']">
+                    <img src="https://www.toronto.ca/wp-content/uploads/2024/03/8f70-EWRB-Homepage-Item-350x250-1.jpeg" alt="Energy & Water Reporting">
+                    <div class="content">
+                        <h3>Energy & Water Reporting</h3>
+                        <p>Buildings 50,000 sq ft+ must report usage by July 2, 2025. Learn how to comply.</p>
+                        <button class="open-btn">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal" id="modal">
+                    <div class="modal-content">
+                        <span class="close-btn" id="closeBtn">&times;</span>
+                        <h2 id="modalTitle"></h2>
+                        <img id="modalImg" src="" alt="">
+                        <p id="modalDesc"></p>
+                    </div>
+                </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            <nav class="footer-nav">
+                <a href="#">Jobs at the City</a>
+                <a href="#">Media Room</a>
+                <a href="#">Contact Us</a>
+                <a href="#">311</a>
+                <a href="#">Translate</a>
+            </nav>
+            <p>© City of Toronto 1998–2025 | Privacy | Accessibility at the City of Toronto</p>
+        </footer>
+
+        <!-- Floating AI Assistant -->
+        <!-- Enhanced AI Chatbot -->
+        <div id="ai-widget" class="active">
+            <div id="ai-header" onclick="toggleChatbot()">
+                <span>CityBot 🤖</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div id="ai-body">
+                <div id="ai-msgs">
+                    <div class="msg bot-msg">Hello! How can I help you today?</div>
+                </div>
+                <div id="ai-input">
+                    <input type="text" id="ai-in" placeholder="Type your message...">
+                    <button id="ai-send" onclick="aiReply()">Send</button>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            // Enhanced Chatbot Functionality
+            let chatHistory = [];
+
+            function toggleChatbot() {
+                const widget = document.getElementById('ai-widget');
+                widget.classList.toggle('active');
+            }
+
+            function aiReply() {
+                const input = document.getElementById('ai-in');
+                const msgsContainer = document.getElementById('ai-msgs');
+                const question = input.value.trim();
+
+                if (!question) return;
+
+                // Add user message
+                msgsContainer.innerHTML += `
+                <div class="msg user-msg">${question}</div>
+            `;
+
+                // Simulate typing effect
+                const typingMsg = document.createElement('div');
+                typingMsg.className = 'msg bot-msg';
+                typingMsg.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+                msgsContainer.appendChild(typingMsg);
+                msgsContainer.scrollTop = msgsContainer.scrollHeight;
+
+                // Generate bot response
+                setTimeout(() => {
+                    typingMsg.remove();
+                    const response = generateResponse(question);
+                    msgsContainer.innerHTML += `
+                    <div class="msg bot-msg">${response}</div>
+                `;
+                    msgsContainer.scrollTop = msgsContainer.scrollHeight;
+                }, 1500);
+
+                input.value = '';
+            }
+
+            function generateResponse(question) {
+                const responses = {
+                    'hello': 'Hello! How can I assist you today?',
+                    'services': 'Toronto offers various services including waste collection, public transit, and community programs.',
+                    'emergency': 'For emergencies, please call 911 immediately.',
+                    'transit': 'The TTC operates subway, streetcar, and bus services. Visit ttc.ca for schedules.',
+                    'default': 'I'
+                    m here to help with Toronto - related inquiries.Please ask me about city services,
+                    transportation,
+                    or local events.
+                    '
+                };
+
+                question = question.toLowerCase();
+                return Object.entries(responses).find(([key]) =>
+                    question.includes(key)
+                )?. [1] || responses.default;
+            }
+
+            // Initialize chatbot
+            document.addEventListener('DOMContentLoaded', () => {
+                const widget = document.getElementById('ai-widget');
+                setTimeout(() => widget.classList.add('active'), 2000);
+            });
+        </script>
+        <script src="script.js"></script>
+</body>
+
+</html>
